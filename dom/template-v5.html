@@ -12,8 +12,8 @@
 
 <body>
     <div id="app">
-        <h1>{{ titulo }}</h1>
-
+        <h1 v-once>{{ titulo }}</h1>
+        <!--tip: 'v-once': diretiva utilizada quando o valor vai ser atualizado apenas da primeira vez.-->
         <h3>{{ saudacao() }}</h3>
         <a v-bind:href="link">Google</a>
     </div>
@@ -28,7 +28,8 @@
         },
         methods:{
             saudacao: function(){
-                //tip: 'v-bind:'' diretiva que faz a conexao entre a algo que está na instancia do VUE e a propriedade está na TAG HTML como 'href' por ex.
+                //tip: 'v-bind:' diretiva que faz a conexao entre a algo que está na instancia do VUE e a propriedade está na TAG HTML como 'href' por ex.
+                this.titulo = 'Bom dia!!!'
                 return this.titulo;
             }            
         }
