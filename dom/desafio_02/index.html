@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 02 - Eventos</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue"></script>
+
+    <div id="desafio">
+        <!-- OK 1) Exiba um alert quando o botão for clicado -->
+        <div>
+            <button v-on:Click="ExibirAlerta()">Exibir Alerta</button>
+        </div><br />
+
+        <!-- OK 2) Escute o evento "keydown" e armazene o valor na propriedade
+        data (dica: event.target.value) -->
+        <div>
+            <!--<input type="text" v-on:keydown="Armazenar()">-->
+            <input type="text" v-on:keyup="valor=$event.target.value">
+            <p>{{ valor }}</p>
+        </div>
+
+        <!-- OK 3) Ajuste o exemplo 2 para disparar o evento "keydown" somente
+        quando a tecla for ENTER -->
+        <div>
+            <input type="text" v-on:keydown.enter="Armazenar2()">
+            <p>{{ valor2 }}</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

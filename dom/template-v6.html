@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates - v3</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-once>{{ titulo }}</h1>
+        <!--tip: 'v-once': diretiva utilizada quando o valor vai ser atualizado apenas da primeira vez.-->
+        <h3>{{ saudacao() }}</h3>
+        <a v-bind:href="link">Google</a>
+        <p v-html="linkHTML"></p>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS 2 - Templates!!!',
+            link: 'https://google.com.br',
+            linkHTML: '<a href="https://google.com">Google HTML<\a>'
+        },
+        methods:{
+            saudacao: function(){
+                //tip: 'v-bind:' diretiva que faz a conexao entre a algo que está na instancia do VUE e a propriedade está na TAG HTML como 'href' por ex.
+                this.titulo = 'Bom dia!!!'
+                return this.titulo;
+            }            
+        }
+    })
+</script>
+
+</html>
