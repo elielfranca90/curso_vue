@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas - V2</title>
+
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <h1>Listas - V2</h1>
+
+    <div id="app">
+        <ul>
+            <li v-for="(cor, idx) in cores" :cor='cor'>{{ idx }} - {{ cor }}</li>
+        </ul>
+
+        <hr>
+
+        <template v-for="(cor, i) in cores">
+            <p>{{ i }} - </p>
+            <h3>{{ cor }} &nbsp;</h3>
+        </template>
+
+        <hr>
+
+        <ul>
+            <strong>Lista de pessoas lista</strong>
+            <li v-for="(pessoa, p) in pessoas">
+                <span v-for="(key, value, index) in pessoa">
+                    {{ value }}: {{ key }}
+                </span>
+        </ul>
+
+        <table>
+            <th>Lista de pessoas em table</th>
+            <tbody>
+                <td v-for="(pessoa, p) in pessoas"></td>
+                <td>{{ pessoa }}</td>
+
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            cores: ['Vermelho', 'Verde', 'Amarelo', 'Azul'],
+            pessoas: [{
+                    nome: 'Ana',
+                    idade: 26,
+                    peso: 59
+                },
+                {
+                    nome: 'Guilherme',
+                    idade: 32,
+                    peso: 89
+                }
+            ]
+        }
+    })
+</script>
+
+<style>
+    ul {
+        list-style: none;
+    }
+
+    h3,
+    p {
+        display: inline;
+    }
+</style>
+
+</html>
